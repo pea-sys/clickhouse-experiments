@@ -1,0 +1,16 @@
+version: "3.7"
+
+services:
+  client:
+    image: yandex/clickhouse-client
+    entrypoint:
+      - /bin/sleep
+    command:
+      - infinity
+  server:
+    image: yandex/clickhouse-server
+    ports:
+      - 8123:8123
+    volumes:
+      - ./volume:/var/lib/clickhouse
+
